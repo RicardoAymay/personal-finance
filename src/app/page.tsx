@@ -6,7 +6,7 @@ export default function Login() {
       <div className="flex w-full h-full border-2">
         <figure className="relative rounded-xl overflow-hidden">
           <Image src={logo} alt=""/>
-          <div className="absolute bottom-10 p-10 text-white border-spacing-500 border-2">
+          <div className="absolute bottom-10 text-white">
             <p className="text-preset-1">
               Keep track of your money and save for your future
             </p>
