@@ -1,5 +1,6 @@
 import Image from "next/image";
 import logo from "../assets/images/illustration-authentication.svg"
+import LoginForm from "./login/components/form/LoginForm";
 export default function Login() {
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-beige-100">
@@ -23,20 +24,10 @@ export default function Login() {
         {/* lado direito */}
         <div className="max-w-[840px] flex flex-1">
           <div className="bg-white rounded-lg max-w-[560px] max-h-[422px] flex flex-1 flex-col">
-            <p className="text-preset-1">
+            <p className="text-preset-1 p-500">
               Login
             </p>
-            <form className="border">
-              <label htmlFor="loginEmail">
-                <p>Email</p>
-                <input type="email" name="email" id="loginEmail" maxLength={100} required/>
-              </label>
-              <label htmlFor="loginPassword">
-                <p>Password</p>
-                <input type="password" name="" id="loginPassword" />
-              </label>
-              <button type="submit"> Login </button>
-            </form>
+            <LoginForm />
           </div>
         </div>
       </div>

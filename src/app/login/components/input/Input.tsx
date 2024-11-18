@@ -8,9 +8,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = forwardRef<HTMLInputElement, InputProps> (({name = '', labelText, type = 'text', id, ...props}, ref) => {
   return (
-    <label htmlFor={id}>
-        {labelText}
-        <input className="border-2 border-gray-900" type={type} name={name} id={id} ref={ref} {...props}></input>
+    <label className="flex flex-col" htmlFor={id}>
+        <span className="text-preset-5-bold">{labelText}</span>
+        <input className="border border-beige-500 rounded-lg" type={type} name={name} id={id} ref={ref} {...props}></input>
     </label>
   )
 })
