@@ -23,6 +23,6 @@
     @apply text-[12px] font-normal leading-[150%] tracking-[0px]
   }
   .text-preset-5-bold {
-    @apply text-[12px] font-normal leading-[150%] tracking-[0px]
+    @apply text-[12px] font-bold leading-[150%] tracking-[0px]
   }
 } 

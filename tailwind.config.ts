@@ -52,7 +52,8 @@ export default {
         50: '4px',
       },
       screens: {
-        maxDefined: "1440px"
+        maxDefined: "1440px",
+        small: "375px"
       }
       
     },
