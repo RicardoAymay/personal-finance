@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${publicSans.variable} antialiased max-w-screen-maxDefined min-h-screen flex-1`}
+        className={`${publicSans.variable} antialiased max-w-screen-maxDefined min-h-screen min-w-[375px] flex-1`}
       >
         {children}
       </body>

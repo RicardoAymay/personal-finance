@@ -9,7 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     visible?: boolean
     setVisible?: Dispatch<SetStateAction<boolean>>;
   }
-  const Input = forwardRef<HTMLInputElement, InputProps> (({name, visible, setVisible, labelText, type, icon, id, ...props}, ref) => {
+  const Input = forwardRef<HTMLInputElement, InputProps> (({name, visible, setVisible, labelText, icon, id, ...props}, ref) => {
     const handleVisibility = () =>{
       if (setVisible){
         setVisible(!visible)
@@ -25,7 +25,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
         <div className="w-full flex relative">
           <input
             className="border border-beige-500 h-[45px] rounded-lg indent-2 w-full pr-10"
-            type={visible ? "text" : "password"} // Dynamically set input type
             name={name}
             id={id}
             ref={ref}
@@ -38,7 +37,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
             >
               <Image
                 className="h-5 w-5"
-                src={visible ? show : hide} // Dynamically update the image source
+                src={visible ? show : hide}
                 alt={visible ? "Hide Password" : "Show Password"}
               />
             </div>
