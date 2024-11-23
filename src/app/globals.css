@@ -4,8 +4,7 @@
 
 @layer components {
   .text-preset-1 {
-    /* adicionar a fonte correta no layout */
-    @apply text-[32px] font-bold leading-[120%] tracking-[0px] ;
+    @apply text-[32px] font-[900] leading-[120%] tracking-[0px] ;
   };
   .text-preset-2 {
     @apply text-[20px] font-bold leading-[120%] tracking-[0px] 
@@ -24,5 +23,12 @@
   }
   .text-preset-5-bold {
     @apply text-[12px] font-bold leading-[150%] tracking-[0px]
+  }
+
+  .finance-menu{
+    @apply bg-grey-900 flex flex-col w-full max-w-[300px] h-screen rounded-r-2xl ease-in-out duration-1000
+  }
+  .finance-menu-minimized{
+    @apply bg-grey-900 flex flex-col w-full max-w-[90px] h-screen rounded-r-2xl ease-in-out duration-1000
   }
 } 
