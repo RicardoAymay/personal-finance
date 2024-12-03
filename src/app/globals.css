@@ -30,4 +30,7 @@
   .finance-menu-minimized{
     @apply bg-grey-900 flex flex-col w-[90px] h-screen rounded-r-2xl ease-in-out duration-500
   }
+  .finance-menu-bottom{
+    @apply w-full bg-grey-900 flex flex-col h-20
+  }
 } 
