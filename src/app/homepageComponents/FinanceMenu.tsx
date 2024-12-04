@@ -57,9 +57,9 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
             ref={menuRef}
             className={`${
                 minimizedMenu ? "finance-menu-bottom lg:finance-menu-minimized" : "finance-menu-bottom lg:finance-menu"
-            } ${touchLeft ? "rounded-r-2xl" : "rounded-2xl"}`}
+            } ${touchLeft ? "lg:rounded-r-2xl" : "lg:rounded-2xl"}`}
         >
-            <header className="text-preset-1 text-white py-500 px-400 w-300 lg:block hidden">
+            <header className="text-preset-1 text-white py-500 px-400 lg:block hidden">
                 f<span
                     className={
                         minimizedMenu
@@ -70,15 +70,15 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                     inance
                 </span>
             </header>
-            <nav className="flex flex-1">
+            <nav className="flex flex-1 w-full">
                 <ul className="flex lg:flex-col gap-4 w-10/12">
                     {menuList.map((item) => (
                         <li
                             key={item.title}
                             data-value={item.title}
                             className={`${item.title.toLowerCase() === highlighted
-                                    ? "lg:bg-beige-100 lg:border-s-4 lg:border-s-secondary-green flex text-grey-900 text-preset-3 ps-400 py-200 rounded-r-lg"
-                                    : "ps-400 text-preset-3 border-s-4 border-s-transparent text-grey-300 py-200"
+                                    ? "bg-beige-100 lg:border-s-4 lg:border-s-secondary-green flex text-grey-900 text-preset-3 lg:ps-400 lg:py-200 px-400 lg:rounded-r-lg"
+                                    : "lg:ps-400 text-preset-3 border-s-4 border-s-transparent text-grey-300 py-200"
                                 }`}
                         >
                             <Link
@@ -98,7 +98,7 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                                 <span
                                     className={
                                         minimizedMenu
-                                            ? "-translate-x-96 ease-in-out text-nowrap duration-1000 opacity-0"
+                                            ? "-translate-x-48 ease-in-out text-nowrap duration-1000 opacity-0 pointer-events-none"
                                             : "ease-in-out duration-1000 cursor-pointer"
                                     }
                                 >
@@ -125,7 +125,7 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                 <span
                     className={
                         minimizedMenu
-                            ? "-translate-x-52 text-nowrap overflow-hidden opacity-0 ease-in-out duration-1000 cursor-pointer"
+                            ? "-translate-x-52 text-nowrap overflow-hidden opacity-0 ease-in-out duration-1000 pointer-events-none"
                             : " text-nowrap ease-in-out duration-1000 cursor-pointer"
                     }
                     onClick={() => setMinimizedMenu(!minimizedMenu)}

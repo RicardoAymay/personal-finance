@@ -38,7 +38,9 @@ export default function Home() {
 
     return (
         <div className="bg-beige-100 max-w-screen-maxDefined w-full flex flex-col-reverse lg:flex-row">
-            <FinanceMenu highlighted="overview" />
+            <div className="absolute bottom-0 w-full z-30 lg:static lg:w-fit flex lg:block items-center justify-center">
+                <FinanceMenu highlighted="overview" />
+            </div>
             <main className="flex flex-col flex-1 px-500 py-400 h-[1000px]">
 
                 <h1 className="text-preset-1">Overview</h1>
@@ -127,7 +129,7 @@ export default function Home() {
                                 <p className="flex text-center items-center justify-center text-preset-4 text-grey-500 gap-150">View all<Image src="/assets/images/icon-caret-right.svg" height={5} width={5} alt="See details" /> </p>
                             </header>
                             <div className="flex justify-between">
-                                <div className="flex flex-1 justify-center items-center">
+                                <div className="flex flex-1 justify-center items-center ">
                                     <div className="max-w-[240px] w-full mb-2">
                                         <Chart />
                                     </div>
