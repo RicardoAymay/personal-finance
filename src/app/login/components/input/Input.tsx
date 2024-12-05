@@ -1,6 +1,6 @@
 import { Dispatch, forwardRef, InputHTMLAttributes, SetStateAction } from "react"
-import hide from "../../../../assets/images/icon-hide-password.svg"
-import show from "../../../../assets/images/icon-show-password.svg"
+import hide from "../../../../../public/assets/images/icon-hide-password.svg"
+import show from "../../../../../public/assets/images/icon-show-password.svg"
 import Image from "next/image";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     labelText?: string;
@@ -48,4 +48,5 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   }
 );
 
+Input.displayName = "Input";
 export default Input

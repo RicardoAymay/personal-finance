@@ -31,6 +31,6 @@
     @apply bg-grey-900 flex flex-col w-[90px] h-screen rounded-r-2xl ease-in-out duration-500
   }
   .finance-menu-bottom{
-    @apply w-full bg-grey-900 flex flex-col justify-center lg:justify-start items-center lg:items-start
+    @apply sticky bottom-0 w-screen lg:w-full bg-grey-900 flex lg:flex-col justify-center lg:justify-start items-center lg:items-start
   }
 } 

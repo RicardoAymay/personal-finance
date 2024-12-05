@@ -37,15 +37,13 @@ export default function Home() {
 
 
     return (
-        <div className="bg-beige-100 max-w-screen-maxDefined w-full flex flex-col-reverse lg:flex-row">
-            <div className="absolute bottom-0 w-full z-30 lg:static lg:w-fit flex lg:block items-center justify-center">
-                <FinanceMenu highlighted="overview" />
-            </div>
-            <main className="flex flex-col flex-1 px-500 py-400 h-[1000px]">
+        <div className="bg-beige-100 max-w-screen-maxDefined lg:w-full h-screen flex flex-col-reverse lg:flex-row">
+            <FinanceMenu highlighted="overview" />
+            <main className="flex flex-col px-200 mt-400 lg:mt-0 md:px-500 lg:py-400 h-screen">
 
                 <h1 className="text-preset-1">Overview</h1>
 
-                <section className="w-full flex gap-300 my-400">
+                <section className="w-full flex-wrap md:flex-nowrap flex gap-300 my-400">
                     <div className="w-full bg-grey-900 text-white p-300 rounded-xl">
                         <p className="mb-150 text-preset-4">Current Balance</p>
                         <p className="text-preset-1">{formattedCurrency(overviewValues.current, 2)}</p>
@@ -69,9 +67,9 @@ export default function Home() {
                                 <h2 className="text-preset-2 text-grey-900">Pots </h2>
                                 <p className="flex text-center items-center justify-center text-preset-4 text-grey-500 gap-150">See Details <Image src="/assets/images/icon-caret-right.svg" height={5} width={5} alt="See details" /> </p>
                             </header>
-                            <div className="w-full flex gap-200">
+                            <div className="w-full flex flex-col md:flex-row gap-200">
 
-                                <div className="flex items-center bg-beige-100 py-200 ps-200 pe-250 w-5/12 min-w-44 rounded-xl">
+                                <div className="flex items-center bg-beige-100 py-200 ps-200 pe-250 w-full md:w-5/12 min-w-44 rounded-xl">
 
                                     <Image src="/assets/images/icon-pot.svg" width={40} height={40} alt="Total saved" />
 

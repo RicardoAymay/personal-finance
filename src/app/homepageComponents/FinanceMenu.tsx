@@ -70,22 +70,22 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                     inance
                 </span>
             </header>
-            <nav className="flex flex-1 w-full">
-                <ul className="flex lg:flex-col gap-4 w-10/12">
+            <nav className="flex flex-1 w-full items-center justify-center lg:items-start lg:justify-start">
+                <ul className="flex lg:flex-col pt-100 lg:pt-0 lg:items-start justify-between lg:justify-start md:gap-4 w-full md:px-200 lg:px-0 lg:w-10/12">
                     {menuList.map((item) => (
                         <li
                             key={item.title}
                             data-value={item.title}
                             className={`${item.title.toLowerCase() === highlighted
-                                    ? "bg-beige-100 lg:border-s-4 lg:border-s-secondary-green flex text-grey-900 text-preset-3 lg:ps-400 lg:py-200 px-400 lg:rounded-r-lg"
-                                    : "lg:ps-400 text-preset-3 border-s-4 border-s-transparent text-grey-300 py-200"
+                                    ? "bg-beige-100 w-auto lg:w-full rounded-t-2xl lg:rounded-none pt-200 border-b-4 border-b-secondary-green lg:border-b-0 lg:border-s-4 lg:border-s-secondary-green flex text-grey-900 text-preset-3 lg:ps-400 lg:py-200 px-400 lg:rounded-r-lg"
+                                    : "lg:ps-400 px-400 text-preset-3 border-b-4 border-b-transparent lg:border-s-4 border-s-transparent text-grey-300 py-200"
                                 }`}
                         >
                             <Link
                                 href={`/${item.title.toLowerCase()}`}
                                 className="flex gap-5 lg:flex-row flex-col items-center lg:justify-start justify-center"
                             >
-                                <figure className="w-1/8">
+                                <figure className="w-fit">
                                     <SvgComponents
                                         highlighted={highlighted}
                                         show={
@@ -99,7 +99,7 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                                     className={
                                         minimizedMenu
                                             ? "-translate-x-48 ease-in-out text-nowrap duration-1000 opacity-0 pointer-events-none"
-                                            : "ease-in-out duration-1000 cursor-pointer"
+                                            : "ease-in-out hidden md:block duration-1000 cursor-pointer"
                                     }
                                 >
                                     {item.title}

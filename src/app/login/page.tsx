@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../assets/images/illustration-authentication.svg"
+import logo from "../../../public/assets/images/illustration-authentication.svg"
 import InitialForm from "./components/form/InitialForm";
 
 export default function Login() {

@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${publicSans.variable} antialiased w-screen bg-beige-100 min-h-screen min-w-[375px] lg:min-w-[1360px] lg:overflow-x-auto overflow-y-hidden flex flex-col justify-center items-center`}
+        className={`${publicSans.variable} antialiased w-screen bg-beige-100 min-h-screen h-auto min-w-[375px] lg:min-w-[1360px] lg:overflow-auto flex flex-col justify-center items-center`}
       >
         {children}
       </body>
