@@ -11,9 +11,9 @@ const BudgetsCards = () => {
         return USDollar.format(number);
       }
   return (
-    <ul className="flex flex-wrap w-32 gap-y-200">
+    <ul className="w-full grid grid-cols-2 md:flex md:w-32 md:flex-wrap gap-y-200">
       {data.budgets.slice(0, 4).map((item) => (
-        <li className="flex w-full gap-4" key={item.category}>
+        <li className="flex flex-wrap md:w-full gap-4" key={item.category}>
           <div
             className="w-[4px] h-full rounded-full mr-1"
             style={{ backgroundColor: item.theme }}

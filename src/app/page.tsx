@@ -126,13 +126,13 @@ export default function Home() {
                                 </p>
                                 <p className="flex text-center items-center justify-center text-preset-4 text-grey-500 gap-150">View all<Image src="/assets/images/icon-caret-right.svg" height={5} width={5} alt="See details" /> </p>
                             </header>
-                            <div className="flex justify-between">
+                            <div className="flex flex-col md:flex-row">
                                 <div className="flex flex-1 justify-center items-center ">
                                     <div className="max-w-[240px] w-full mb-2">
                                         <Chart />
                                     </div>
                                 </div>
-                                <div className="ms-200 w-fit lg:w-5/12  mt-4">
+                                <div className="ms-200 w-full lg:w-5/12 md:flex md:justify-end mt-4">
                                     <BudgetsCards />
                                 </div>
                             </div>
