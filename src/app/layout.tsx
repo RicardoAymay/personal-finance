@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="w-auto">
       <body
         className={`${publicSans.variable} antialiased w-screen bg-beige-100 min-h-screen h-auto min-w-[375px] lg:min-w-[1360px] lg:overflow-auto flex flex-col justify-center items-center`}
       >

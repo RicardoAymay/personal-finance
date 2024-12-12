@@ -5,7 +5,7 @@ import InitialForm from "../login/components/form/InitialForm";
 export default function Login() {
   return (
     <>
-    <div className="w-screen h-screen flex flex-col items-center justify-center bg-beige-100">
+    <div className="w-screen flex flex-col items-center justify-center bg-beige-100">
     <header className='md:hidden text-preset-1 border w-full absolute top-0 text-center text-white bg-grey-900 py-400 px-500 rounded-b-lg'>
         finance
     </header>

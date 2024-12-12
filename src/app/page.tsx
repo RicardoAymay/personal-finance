@@ -37,9 +37,12 @@ export default function Home() {
 
 
     return (
-        <div className="bg-beige-100 max-w-screen-maxDefined lg:w-full h-screen flex flex-col-reverse lg:flex-row">
-            <FinanceMenu highlighted="overview" />
-            <main className="flex flex-col px-200 mt-400 lg:mt-0 md:px-500 lg:py-400 h-screen">
+        <div className="bg-beige-100 max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row">
+            <div className="relative flex flex-1 mt-400 lg:mt-0 w-full h-full">
+                <hr></hr>
+                <FinanceMenu highlighted="overview" />
+            </div>
+            <main className="flex flex-col px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
 
                 <h1 className="text-preset-1">Overview</h1>
 
@@ -62,7 +65,7 @@ export default function Home() {
                     {/* left side */}
                     <div className="lg:w-7/12 w-full">
 
-                        <div className="flex flex-col w-full bg-white p-400 gap-250 rounded-xl">
+                        <div className="flex flex-col w-full bg-white p-200 md:p-400 gap-250 rounded-xl">
                             <header className="w-full flex justify-between">
                                 <h2 className="text-preset-2 text-grey-900">Pots </h2>
                                 <p className="flex text-center items-center justify-center text-preset-4 text-grey-500 gap-150">See Details <Image src="/assets/images/icon-caret-right.svg" height={5} width={5} alt="See details" /> </p>
@@ -82,7 +85,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-400">
+                        <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-200 md:p-400">
                             <header className="flex justify-between">
                                 <p className="text-preset-2">
                                     Transactions
@@ -118,8 +121,8 @@ export default function Home() {
                     </div>
 
                     {/* right side */}
-                    <div className="flex flex-col lg:ms-300 lg:w-5/12 min-w-96 justify-between mt-200 lg:mt-0">
-                        <div className="bg-white w-full p-400 rounded-xl">
+                    <div className="flex flex-col lg:ms-300 lg:w-5/12 min-w-[375px] justify-between mt-200 lg:mt-0">
+                        <div className="bg-white w-full p-200 md:p-400 rounded-xl">
                             <header className="flex justify-between w-full mb-250">
                                 <p className="text-preset-2">
                                     Budgets
@@ -132,12 +135,12 @@ export default function Home() {
                                         <Chart />
                                     </div>
                                 </div>
-                                <div className="ms-200 w-full lg:w-5/12 md:flex md:justify-end mt-4">
+                                <div className="w-full flex justify-center lg:w-5/12 md:flex md:justify-end mt-4">
                                     <BudgetsCards />
                                 </div>
                             </div>
                         </div>
-                    <div className="flex p-400 flex-col bg-white rounded-xl mt-300 w-full">
+                    <div className="flex p-200 md:p-400 flex-col bg-white rounded-xl mt-300 w-full">
                         <header className="flex justify-between w-full">
                             <p className="text-preset-2">
                                 Recurring bills
