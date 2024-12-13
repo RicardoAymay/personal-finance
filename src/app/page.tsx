@@ -1,5 +1,3 @@
-'use client'
-import FinanceMenu from "./homepageComponents/FinanceMenu";
 import Image from "next/image";
 import PotsCards from "./homepageComponents/PotsCards";
 import data from "../data.json"
@@ -7,6 +5,7 @@ import React from "react";
 import BudgetsCards from "./homepageComponents/BudgetsCards";
 import Chart from "./homepageComponents/Chart";
 import RecurringBills from "./homepageComponents/RecurringBillsHomepage";
+import FinanceMenuNoSSR from "./homepageComponents/FinanceMenuNoSSR";
 
 
 export type Highlited = "overview" | "transactions" | "budgets" | "pots" | "recurring bills";
@@ -37,12 +36,12 @@ export default function Home() {
 
 
     return (
-        <div className="bg-beige-100 max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row">
-            <div className="relative flex flex-1 mt-400 lg:mt-0 w-full h-full">
+        <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row">
+            <div className="flex flex-1 mt-400 lg:mt-0 w-full h-full">
                 <hr></hr>
-                <FinanceMenu highlighted="overview" />
+                <FinanceMenuNoSSR highlighted="overview" />
             </div>
-            <main className="flex flex-col px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
+            <main className="relative flex flex-col px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
 
                 <h1 className="text-preset-1">Overview</h1>
 
@@ -121,7 +120,7 @@ export default function Home() {
                     </div>
 
                     {/* right side */}
-                    <div className="flex flex-col lg:ms-300 lg:w-5/12 min-w-[375px] justify-between mt-200 lg:mt-0">
+                    <div className="flex flex-col lg:ms-300 lg:w-5/12 justify-between mt-200 lg:mt-0">
                         <div className="bg-white w-full p-200 md:p-400 rounded-xl">
                             <header className="flex justify-between w-full mb-250">
                                 <p className="text-preset-2">

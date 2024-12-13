@@ -71,15 +71,16 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                 </span>
             </header>
             <nav className="flex flex-1 w-full items-center justify-center lg:items-start lg:justify-start">
-                <ul className="flex lg:flex-col pt-100 lg:pt-0 lg:items-start justify-between lg:justify-start md:gap-4 w-full md:px-200 lg:px-0 lg:w-10/12">
+                <ul className="flex lg:flex-col pt-100 lg:pt-0 lg:items-start justify-around md:justify-between lg:justify-start md:gap-4 w-full md:px-200 lg:px-0 lg:w-10/12">
                     {menuList.map((item) => (
                         <li
                             key={item.title}
                             data-value={item.title}
-                            className={`${item.title.toLowerCase() === highlighted
-                                    ? "bg-beige-100 w-auto lg:w-full rounded-t-2xl lg:rounded-none pt-200 border-b-4 border-b-secondary-green lg:border-b-0 lg:border-s-4 lg:border-s-secondary-green flex text-grey-900 text-preset-3 lg:ps-400 lg:py-200 px-200 lg:rounded-r-lg"
-                                    : "lg:ps-400 px-200 text-preset-3 border-b-4 border-b-transparent lg:border-s-4 border-s-transparent text-grey-300 py-200"
-                                }`}
+                            className={`${
+                                item.title.toLowerCase() === highlighted
+                                    ? "bg-beige-100 w-auto lg:w-full rounded-t-2xl lg:rounded-none pt-200 border-b-4 border-b-secondary-green lg:border-b-0 lg:border-s-4 lg:border-s-secondary-green flex text-grey-900 text-preset-3 lg:ps-400 lg:py-200 px-300 lg:rounded-r-lg"
+                                    : "px-300 text-preset-3 border-b-4 border-b-transparent lg:border-s-4 border-s-transparent text-grey-300 py-200"
+                            }`}
                         >
                             <Link
                                 href={`/${item.title.toLowerCase()}`}
