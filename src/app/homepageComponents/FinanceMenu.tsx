@@ -83,7 +83,7 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                             }`}
                         >
                             <Link
-                                href={`/${item.title.toLowerCase()}`}
+                                href={item.title === "Overview"?'/':`/${item.title.toLowerCase()}`}
                                 className="flex gap-5 lg:flex-row flex-col items-center lg:justify-start justify-center"
                             >
                                 <figure className="w-fit">
