@@ -1,19 +1,22 @@
 'use client'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
+import { CategoryOption, SortOption } from '../transactions/page'
 interface TransactionSelectProps {
     selectTitle: "Sort by" | "Category",
     iterateOver: string[],
     imgSrc: string,
+    sortBy: SortOption
+    setSortBy: React.Dispatch<React.SetStateAction<SortOption>>
+    category: CategoryOption
+    setCategory: React.Dispatch<React.SetStateAction<CategoryOption>>
 }
-type SortOption = "Latest" | "Oldest" | "A to Z" | "Z to A" | "Highest" | "Lowest"
-type CategoryOption = "All Transactions" | "Enternaiment" | "Bills" | "Groceries" | "Dining Out" | "Transportation" | "Personal Care"
 
 
-const TransactionSelect = ({ iterateOver, selectTitle, imgSrc }: TransactionSelectProps) => {
+
+const TransactionSelect = ({ iterateOver, selectTitle, imgSrc, sortBy, category, setSortBy, setCategory }: TransactionSelectProps) => {
     
-        const [sortBy, setSortBy] = useState<SortOption>("Latest");
-        const [category, setCategory] = useState<CategoryOption>("All Transactions");
+  ;
 
         const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
             const value = e.target.value
