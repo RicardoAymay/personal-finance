@@ -6,8 +6,6 @@ import caretDown from "../../../public/assets/images/icon-caret-down.svg"
 import search from "../../../public/assets/images/icon-search.svg"
 import TransactionSelect from '../transactionsComponents/TransactionSelect';
 
-
-
 const TransactionsPage = () => {
     function formattedCurrency(number: number, decimals: number) {
         const USDollar = new Intl.NumberFormat('en-US', {
@@ -19,7 +17,7 @@ const TransactionsPage = () => {
     }
 
     const sortList: string[] = ["Latest", "Oldest", "A to Z", "Z to A", "Highest", "Lowest"]
-    const categoryList: string[] = ["Enternaiment", "Bills", "Groceries", "Dining Out", "Transportation", "Personal Care"]
+    const categoryList: string[] = ["All Transactions", "Enternaiment", "Bills", "Groceries", "Dining Out", "Transportation", "Personal Care"]
     function formatDate(dateToformat: string) {
         const date = new Date(dateToformat);
         const formattedDate = date.toLocaleDateString("en-US", {
