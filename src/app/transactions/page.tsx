@@ -27,7 +27,7 @@ const TransactionsPage = () => {
                 <h1 className="text-preset-1">Transactions</h1>
                 <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-200 md:p-400">
                     <header className="flex justify-between">
-                        <label className=' relative flex overflow-hidden z-10 border rounded-lg px-250 py-150 w-[320px] justify-between'>
+                        <label className=' relative flex overflow-hidden z-10 border rounded-lg px-250 py-150 w-[320px] justify-between items-center'>
                             <input className='absolute top-0 left-0 ps-150 w-full h-full bg-red-50' placeholder='Search transaction' />
                             <Image className='absolute right-150' src={search} alt='Search your transactions here' />
                         </label>
