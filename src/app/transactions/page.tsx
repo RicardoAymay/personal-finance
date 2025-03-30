@@ -19,7 +19,7 @@ const TransactionsPage = () => {
     return (
         <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row">
 
-            <div className="flex flex-1 mt-400 lg:mt-0 w-full max-w-[300px] h-full">
+            <div className="flex flex-1 mt-400 lg:mt-0 w-full lg:max-w-[300px] h-full">
                 <FinanceMenuNoSSR highlighted="transactions" />
             </div>
 
