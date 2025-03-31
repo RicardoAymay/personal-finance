@@ -8,12 +8,14 @@ import TransactionSelect from '../transactionsComponents/TransactionSelect';
 import TransactionUL from '../transactionsComponents/TransactionUL';
 
 export type SortOption = "Latest" | "Oldest" | "A to Z" | "Z to A" | "Highest" | "Lowest"
-export type CategoryOption = "All Transactions" | "Enternaiment" | "Bills" | "Groceries" | "Dining Out" | "Transportation" | "Personal Care"
+export type CategoryOption = "All Transactions" | "Entertainment" | "Bills" | "Groceries" | "Dining Out" | "Transportation" | "Personal Care"
 const TransactionsPage = () => {
     const [sortBy, setSortBy] = useState<SortOption>("Latest");
     const [category, setCategory] = useState<CategoryOption>("All Transactions")
+    const [searchQuery, setSearchQuery] = useState<string>("");
+
     const sortList: string[] = ["Latest", "Oldest", "A to Z", "Z to A", "Highest", "Lowest"]
-    const categoryList: string[] = ["All Transactions", "Enternaiment", "Bills", "Groceries", "Dining Out", "Transportation", "Personal Care"]
+    const categoryList: string[] = ["All Transactions", "Entertainment", "Bills", "Groceries", "Dining Out", "Transportation", "Personal Care"]
 
     return (
         <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row">
@@ -26,17 +28,27 @@ const TransactionsPage = () => {
                 <h1 className="text-preset-1">Transactions</h1>
                 <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-200 md:p-400">
                     <header className="flex justify-between">
-                        <label className=' relative flex overflow-hidden z-10 border rounded-lg px-250 py-150 w-[320px] justify-between items-center'>
-                            <input className='absolute top-0 left-0 ps-150 w-full h-full' placeholder='Search transaction' />
-                            <Image className='absolute right-150' src={search} alt='Search your transactions here' />
+                        <label className="flex items-center border rounded-lg min-w-[215px] w-full max-w-[320px] bg-white">
+                            <input
+                                type="text"
+                                className="flex-1 focus:outline-none h-full placeholder:text-slate-400 rounded-lg indent-300"
+                                placeholder="Search transaction"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                            <Image
+                                src={search}
+                                alt="Search your transactions here"
+                                className="relative right-300 pointer-events-none"
+                            />
                         </label>
                         <div className='flex space-x-300'>
                             <TransactionSelect selectTitle='Sort by' imgSrc={caretDown} iterateOver={sortList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory} />
 
-                            <TransactionSelect selectTitle='Category' imgSrc={caretDown} iterateOver={categoryList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory}/>
+                            <TransactionSelect selectTitle='Category' imgSrc={caretDown} iterateOver={categoryList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory} />
                         </div>
                     </header>
-                    <TransactionUL sortBy={sortBy} category={category} />
+                    <TransactionUL sortBy={sortBy} category={category} searchQuery={searchQuery} />
                 </div>
             </main>
         </div>

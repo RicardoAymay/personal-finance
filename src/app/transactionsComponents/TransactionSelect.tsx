@@ -23,7 +23,7 @@ const TransactionSelect = ({ iterateOver, selectTitle, imgSrc, sortBy, category,
             } else {
               setCategory(value as CategoryOption)
             }
-            console.log("Selected:", value)
+           
           }
           
           const getBold = sortBy? sortBy : category

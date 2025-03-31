@@ -1,51 +1,56 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import data from "../../data.json"
 import { Carets } from './CaretsComponent'
 import { CategoryOption, SortOption } from '../transactions/page';
 
 type TransactionULProps = {
-  sortBy: SortOption;
-  category: CategoryOption;
+    sortBy: SortOption;
+    category: CategoryOption;
+    searchQuery: string;
 };
 
-const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category }) => {
+const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQuery }) => {
     const [page, setPage] = useState<number>(1);
     const itemsPerPage = 10;
 
-    const filteredTransactions = category === "All Transactions"
-      ? data.transactions
-      : data.transactions.filter(tx => tx.category === category);
+    useEffect(() => {
+        setPage(1);
+    }, [searchQuery, category]);
 
-    const sortedTransactions = [...filteredTransactions]; // copy array to avoid mutating original
-    console.log("Filtered transactions:", filteredTransactions);
-    console.log("Sorted transactions:", sortedTransactions);
+    const filteredTransactions = data.transactions.filter(tx => {
+        const matchesCategory = category === "All Transactions" || tx.category === category;
+        const matchesSearch = searchQuery.trim() === "" || tx.name.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+    });
+
+    const sortedTransactions = [...filteredTransactions];
 
     switch (sortBy) {
-      case "Latest":
-        
-        sortedTransactions.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-        break;
-      case "Oldest":
-        
-        sortedTransactions.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-        break;
-      case "A to Z":
-        
-        sortedTransactions.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      case "Z to A":
-        
-        sortedTransactions.sort((a, b) => b.name.localeCompare(a.name));
-        break;
-      case "Highest":
-        
-        sortedTransactions.sort((a, b) => b.amount - a.amount);
-        break;
-      case "Lowest":
-        
-        sortedTransactions.sort((a, b) => a.amount - b.amount);
-        break;
+        case "Latest":
+
+            sortedTransactions.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+            break;
+        case "Oldest":
+
+            sortedTransactions.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+            break;
+        case "A to Z":
+
+            sortedTransactions.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+        case "Z to A":
+
+            sortedTransactions.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+        case "Highest":
+
+            sortedTransactions.sort((a, b) => b.amount - a.amount);
+            break;
+        case "Lowest":
+
+            sortedTransactions.sort((a, b) => a.amount - b.amount);
+            break;
     }
 
     const numberOfPages = Math.ceil(sortedTransactions.length / itemsPerPage);
@@ -101,11 +106,11 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category }) => {
                             <div className='flex col-span-3'>
                                 <figure className="flex items-center">
                                     <Image
-                                      className="rounded-full"
-                                      src={item.avatar}
-                                      width={40}
-                                      height={40}
-                                      alt="Picture to who or from who you sent/received your money"
+                                        className="rounded-full"
+                                        src={item.avatar}
+                                        width={40}
+                                        height={40}
+                                        alt="Picture to who or from who you sent/received your money"
                                     />
                                 </figure>
                                 <figcaption className="flex items-center flex-1 ms-4 text-preset-3">
@@ -119,8 +124,8 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category }) => {
                                 {formatDate(item.date)}
                             </p>
                             <p className={item.amount > 0
-                              ? "text-preset-4-bold text-secondary-green text-right"
-                              : "text-preset-4-bold text-right"}
+                                ? "text-preset-4-bold text-secondary-green text-right"
+                                : "text-preset-4-bold text-right"}
                             >
                                 {item.amount > 0 ? "+" : ""}
                                 {formattedCurrency(item.amount, 2)}
@@ -132,8 +137,8 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category }) => {
 
             <div className="w-full flex justify-between col-span-6 pt-300">
                 <button
-                  onClick={handleSubtractPage}
-                  className="flex border rounded-lg w-24 justify-center h-10 items-center space-x-150"
+                    onClick={handleSubtractPage}
+                    className="flex border rounded-lg w-24 justify-center h-11 items-center space-x-150"
                 >
                     <Carets svgName="caretLeft" heightSvg={12} widthSvg={16} />
                     <p>Prev</p>
@@ -142,13 +147,13 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category }) => {
                 <div className='flex gap-100'>
                     {Array.from({ length: numberOfPages }, (_, i) => (
                         <button
-                          key={i + 1}
-                          onClick={() => setPage(i + 1)}
-                          className={
-                            i + 1 === page
-                              ? "h-10 w-10 rounded-lg p-200 border flex items-center bg-gray-900 text-white"
-                              : "h-10 w-10 rounded-lg p-200 border flex items-center"
-                          }
+                            key={i + 1}
+                            onClick={() => setPage(i + 1)}
+                            className={
+                                i + 1 === page
+                                    ? "h-10 w-10 rounded-lg p-200 border flex items-center bg-gray-900 text-white"
+                                    : "h-10 w-10 rounded-lg p-200 border flex items-center"
+                            }
                         >
                             {i + 1}
                         </button>
@@ -156,8 +161,8 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category }) => {
                 </div>
 
                 <button
-                  onClick={handleAddPage}
-                  className="flex border rounded-lg w-24 justify-center h-10 items-center space-x-150"
+                    onClick={handleAddPage}
+                    className="flex border rounded-lg w-24 justify-center h-11 items-center space-x-150"
                 >
                     <p>Next</p>
                     <Carets svgName="caretRight" heightSvg={12} widthSvg={16} />
