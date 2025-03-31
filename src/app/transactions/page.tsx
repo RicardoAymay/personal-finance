@@ -12,7 +12,6 @@ export type CategoryOption = "All Transactions" | "Enternaiment" | "Bills" | "Gr
 const TransactionsPage = () => {
     const [sortBy, setSortBy] = useState<SortOption>("Latest");
     const [category, setCategory] = useState<CategoryOption>("All Transactions")
-
     const sortList: string[] = ["Latest", "Oldest", "A to Z", "Z to A", "Highest", "Lowest"]
     const categoryList: string[] = ["All Transactions", "Enternaiment", "Bills", "Groceries", "Dining Out", "Transportation", "Personal Care"]
 
@@ -28,7 +27,7 @@ const TransactionsPage = () => {
                 <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-200 md:p-400">
                     <header className="flex justify-between">
                         <label className=' relative flex overflow-hidden z-10 border rounded-lg px-250 py-150 w-[320px] justify-between items-center'>
-                            <input className='absolute top-0 left-0 ps-150 w-full h-full bg-red-50' placeholder='Search transaction' />
+                            <input className='absolute top-0 left-0 ps-150 w-full h-full' placeholder='Search transaction' />
                             <Image className='absolute right-150' src={search} alt='Search your transactions here' />
                         </label>
                         <div className='flex space-x-300'>
