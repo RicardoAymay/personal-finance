@@ -16,8 +16,6 @@ interface TransactionSelectProps {
 
 const TransactionSelect = ({ iterateOver, selectTitle, imgSrc, sortBy, category, setSortBy, setCategory }: TransactionSelectProps) => {
     
-  ;
-
         const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
             const value = e.target.value
             if (selectTitle === "Sort by") {
@@ -28,19 +26,20 @@ const TransactionSelect = ({ iterateOver, selectTitle, imgSrc, sortBy, category,
             console.log("Selected:", value)
           }
           
+          const getBold = sortBy? sortBy : category
     return (
-        <label htmlFor="transactionSort" className="text-preset-4 relative items-center flex text-grey-500 w-56">
+        <label htmlFor="transactionSort" className="text-preset-4 relative flex  items-center text-grey-500 w-56">
           <p className="left-0 me-2">{selectTitle}</p>
-          <div className="flex border rounded-lg overflow-hidden relative right-0 bg-none h-8 w-3/4 text-xs text-grey-900">
+          <div className="flex border rounded-lg overflow-hidden relative right-0 bg-none h-11 w-3/4 text-xs text-grey-900">
             <select
               id="transactionSort"
-              className="w-full rounded-lg px-250 py-100 mr-100 bg-transparent appearance-none"
+              className="w-full rounded-lg px-250 py-100 mr-100 bg-transparent appearance-none text-gray-900 font-semibold"
               data-select={selectTitle}
               value={selectTitle === "Sort by" ? sortBy : category}
               onChange={handleChange}
             >
               {iterateOver.map((item) => (
-                <option key={item} value={item}>
+                <option key={item} value={item} className={getBold === item? "font-bold" : "font-normal"}>
                   {item}
                 </option>
               ))}

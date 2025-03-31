@@ -36,7 +36,7 @@ const TransactionsPage = () => {
                             <TransactionSelect selectTitle='Category' imgSrc={caretDown} iterateOver={categoryList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory}/>
                         </div>
                     </header>
-                    <TransactionUL />
+                    <TransactionUL sortBy={sortBy} category={category} />
                 </div>
             </main>
         </div>
