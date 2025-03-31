@@ -36,7 +36,7 @@ export default function Home() {
 
 
     return (
-        <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row">
+        <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex min-h-screen flex-col-reverse lg:flex-row">
             <div className="flex flex-1 mt-400 lg:mt-0 w-full h-full">
                 <FinanceMenuNoSSR highlighted="overview" />
             </div>

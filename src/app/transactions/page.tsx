@@ -18,18 +18,19 @@ const TransactionsPage = () => {
     const categoryList: string[] = ["All Transactions", "Entertainment", "Bills", "Groceries", "Dining Out", "Transportation", "Personal Care"]
 
     return (
-        <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row">
+        <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row h-screen">
 
-            <div className="flex flex-1 mt-400 lg:mt-0 w-full lg:max-w-[300px] h-full">
+            <div className="flex flex-1 mt-400 lg:mt-0 w-full lg:max-w-[300px] h-auto">
                 <FinanceMenuNoSSR highlighted="transactions" />
             </div>
 
             <main className="relative flex flex-col w-full px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
                 <h1 className="text-preset-1">Transactions</h1>
                 <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-200 md:p-400">
-                    <header className="flex justify-between">
-                        <label className="flex items-center border rounded-lg min-w-[215px] w-full max-w-[320px] bg-white">
+                    <header className="flex justify-between w-full">
+                        <label className="flex items-center border rounded-lg min-w-[215px] w-full me-300 max-w-[320px] bg-white">
                             <input
+                                name='searchTransaction'
                                 type="text"
                                 className="flex-1 focus:outline-none h-full placeholder:text-slate-400 rounded-lg indent-300"
                                 placeholder="Search transaction"
@@ -42,7 +43,7 @@ const TransactionsPage = () => {
                                 className="relative right-300 pointer-events-none"
                             />
                         </label>
-                        <div className='flex space-x-300'>
+                        <div className='flex space-x-300 lg:w-full lg:justify-end'>
                             <TransactionSelect selectTitle='Sort by' imgSrc={caretDown} iterateOver={sortList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory} />
 
                             <TransactionSelect selectTitle='Category' imgSrc={caretDown} iterateOver={categoryList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory} />

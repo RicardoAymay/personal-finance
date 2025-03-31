@@ -4,6 +4,22 @@ import data from "../../data.json"
 import { Carets } from './CaretsComponent'
 import { CategoryOption, SortOption } from '../transactions/page';
 
+function useMediaQuery(query: string): boolean {
+    const [matches, setMatches] = useState(false);
+
+    useEffect(() => {
+        const media = window.matchMedia(query);
+        if (media.matches !== matches) {
+            setMatches(media.matches);
+        }
+        const listener = () => setMatches(media.matches);
+        media.addEventListener("change", listener);
+        return () => media.removeEventListener("change", listener);
+    }, [matches, query]);
+
+    return matches;
+}
+
 type TransactionULProps = {
     sortBy: SortOption;
     category: CategoryOption;
@@ -13,6 +29,9 @@ type TransactionULProps = {
 const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQuery }) => {
     const [page, setPage] = useState<number>(1);
     const itemsPerPage = 10;
+    // Define mobile breakpoint (adjust as needed)
+    const isMobile = useMediaQuery('(max-width: 768px)');
+    const maxButtons = isMobile ? 3 : 5;
 
     useEffect(() => {
         setPage(1);
@@ -28,27 +47,21 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQ
 
     switch (sortBy) {
         case "Latest":
-
             sortedTransactions.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
             break;
         case "Oldest":
-
             sortedTransactions.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
             break;
         case "A to Z":
-
             sortedTransactions.sort((a, b) => a.name.localeCompare(b.name));
             break;
         case "Z to A":
-
             sortedTransactions.sort((a, b) => b.name.localeCompare(a.name));
             break;
         case "Highest":
-
             sortedTransactions.sort((a, b) => b.amount - a.amount);
             break;
         case "Lowest":
-
             sortedTransactions.sort((a, b) => a.amount - b.amount);
             break;
     }
@@ -58,6 +71,13 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQ
     const dataSliceEnd = dataSliceStart + itemsPerPage;
     const paginatedTransactions = sortedTransactions.slice(dataSliceStart, dataSliceEnd);
 
+    // Calculate the pagination window
+    const totalButtons = Math.min(numberOfPages, maxButtons);
+    const startPage =
+        numberOfPages <= maxButtons
+            ? 1
+            : Math.max(1, Math.min(page - Math.floor(maxButtons / 2), numberOfPages - totalButtons + 1));
+    const pages = Array.from({ length: totalButtons }, (_, i) => startPage + i);
 
     function formatDate(dateToformat: string) {
         const date = new Date(dateToformat);
@@ -101,7 +121,7 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQ
             <ul className="w-full col-span-6">
                 {paginatedTransactions.map((item) => (
                     <React.Fragment key={item.date + item.name + item.amount}>
-                        <hr className="my-200 border border-beige-100"></hr>
+                        <hr className="my-200 border border-beige-100" />
                         <li className="grid grid-cols-6">
                             <div className='flex col-span-3'>
                                 <figure className="flex items-center">
@@ -125,8 +145,8 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQ
                             </p>
                             <p className={item.amount > 0
                                 ? "text-preset-4-bold text-secondary-green text-right"
-                                : "text-preset-4-bold text-right"}
-                            >
+                                : "text-preset-4-bold text-right"
+                            }>
                                 {item.amount > 0 ? "+" : ""}
                                 {formattedCurrency(item.amount, 2)}
                             </p>
@@ -145,17 +165,17 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQ
                 </button>
 
                 <div className='flex gap-100'>
-                    {Array.from({ length: numberOfPages }, (_, i) => (
+                    {pages.map((pageNumber) => (
                         <button
-                            key={i + 1}
-                            onClick={() => setPage(i + 1)}
+                            key={pageNumber}
+                            onClick={() => setPage(pageNumber)}
                             className={
-                                i + 1 === page
+                                pageNumber === page
                                     ? "h-10 w-10 rounded-lg p-200 border flex items-center bg-gray-900 text-white"
                                     : "h-10 w-10 rounded-lg p-200 border flex items-center"
                             }
                         >
-                            {i + 1}
+                            {pageNumber}
                         </button>
                     ))}
                 </div>
