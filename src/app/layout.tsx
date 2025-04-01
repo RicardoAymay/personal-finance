@@ -18,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="w-auto">
+    <html lang="en" className="min-w-[375px] lg:min-w-[1360px]">
       <body
-        className={`${publicSans.variable} antialiased w-screen bg-beige-100 min-h-screen h-auto min-w-[375px] lg:min-w-[1360px] lg:overflow-auto flex flex-col justify-center items-center`}
+        className={`${publicSans.variable} antialiased w-full bg-beige-100 min-h-screen flex flex-col justify-center items-center`}
       >
         {children}
       </body>

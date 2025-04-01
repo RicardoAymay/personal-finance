@@ -59,7 +59,7 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                 minimizedMenu ? "finance-menu-bottom lg:finance-menu-minimized" : "finance-menu-bottom lg:finance-menu"
             } ${touchLeft ? "lg:rounded-r-2xl" : "lg:rounded-2xl"}`}
         >
-            <header className="text-preset-1 text-white py-500 px-400 lg:block hidden">
+            <header className="text-preset-1 text-white py-500 px-400 lg:block hidden bg-inherit w-full">
                 f<span
                     className={
                         minimizedMenu
@@ -70,7 +70,7 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                     inance
                 </span>
             </header>
-            <nav className="flex flex-1 w-full items-center justify-center lg:items-start lg:justify-start">
+            <nav className="flex flex-1 w-full items-center justify-center lg:items-start lg:justify-start bg-inherit">
                 <ul className="flex lg:flex-col pt-100 lg:pt-0 lg:items-start justify-around md:justify-between lg:justify-start md:gap-4 w-full md:px-200 lg:px-0 lg:w-10/12">
                     {menuList.map((item) => (
                         <li

@@ -36,10 +36,10 @@ export default function Home() {
 
 
     return (
-        <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex min-h-screen flex-col-reverse lg:flex-row">
-            <div className="flex flex-1 mt-400 lg:mt-0 w-full h-full">
+        <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row">
+            
                 <FinanceMenuNoSSR highlighted="overview" />
-            </div>
+            
             <main className="relative flex flex-col px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
 
                 <h1 className="text-preset-1">Overview</h1>

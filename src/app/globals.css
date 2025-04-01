@@ -25,12 +25,12 @@
     @apply text-[12px] font-bold leading-[150%] tracking-[0px]
   }
   .finance-menu{
-    @apply bg-grey-900 flex flex-col w-[300px] h-screen md:h-full rounded-r-2xl ease-in-out duration-500
+    @apply bg-grey-900 flex flex-col w-[300px] rounded-r-2xl ease-in-out duration-500 overflow-hidden h-screen  
   }
   .finance-menu-minimized{
     @apply bg-grey-900 flex flex-col w-[90px] h-screen rounded-r-2xl ease-in-out duration-500
   }
   .finance-menu-bottom{
-    @apply px-200 lg:px-0 w-screen h-16 lg:w-full bg-grey-900 flex lg:flex-col justify-center lg:justify-start items-end lg:items-start
+    @apply px-200 lg:px-0 w-screen h-16 lg:h-full lg:w-full mt-400 lg:mt-0 bg-grey-900 flex lg:flex-col justify-center lg:justify-start items-end lg:items-start
   }
 } 

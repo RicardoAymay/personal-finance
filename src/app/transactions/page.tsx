@@ -20,11 +20,13 @@ const TransactionsPage = () => {
     return (
         <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row h-screen">
 
-            <div className="flex flex-1 mt-400 lg:mt-0 w-full lg:max-w-[300px] h-auto">
-                <FinanceMenuNoSSR highlighted="transactions" />
-            </div>
 
-            <main className="relative flex flex-col w-full px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
+            
+                <FinanceMenuNoSSR highlighted="transactions" />
+            
+
+
+            <main className="relative flex  flex-col w-full px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
                 <h1 className="text-preset-1">Transactions</h1>
                 <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-200 md:p-400">
                     <header className="flex justify-between w-full">
