@@ -111,19 +111,19 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQ
 
     return (
         <div className='grid grid-cols-6 w-full my-200 justify-between'>
-            <div className='w-full mt-400 grid grid-cols-6 col-span-full text-gray-500 text-xs'>
+            <div className='hidden w-full mt-400 md:grid grid-cols-6 col-span-full text-gray-500 text-xs'>
                 <p className='col-span-3'>Recipient/Sender</p>
                 <p>Category</p>
                 <p>Transaction date</p>
                 <p className='text-right'>Amount</p>
             </div>
 
-            <ul className="w-full col-span-6">
+            <ul className="w-full col-span-6 mt-300">
                 {paginatedTransactions.map((item) => (
                     <React.Fragment key={item.date + item.name + item.amount}>
-                        <hr className="my-200 border border-beige-100" />
-                        <li className="grid grid-cols-6">
-                            <div className='flex col-span-3'>
+                        
+                        <li className="grid grid-cols-6 my-400">
+                            <div className='flex col-span-4 md:col-span-3'>
                                 <figure className="flex items-center">
                                     <Image
                                         className="rounded-full"
@@ -133,23 +133,31 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQ
                                         alt="Picture to who or from who you sent/received your money"
                                     />
                                 </figure>
-                                <figcaption className="flex items-center flex-1 ms-4 text-preset-3">
+                                <figcaption className="flex flex-1 ms-4 text-preset-3 flex-col">
                                     {item.name}
+                                    <p className="text-preset-5 text-grey-500 w-32 md:hidden">
+                                        {item.category}
+                                    </p>
                                 </figcaption>
                             </div>
-                            <p className="text-preset-5 text-grey-500 w-32">
+                            <p className="hidden md:block text-preset-5 text-grey-500 w-32">
                                 {item.category}
                             </p>
-                            <p className="text-preset-5 text-grey-500">
+                            <p className="hidden md:block text-preset-5 text-grey-500">
                                 {formatDate(item.date)}
                             </p>
-                            <p className={item.amount > 0
-                                ? "text-preset-4-bold text-secondary-green text-right"
-                                : "text-preset-4-bold text-right"
-                            }>
-                                {item.amount > 0 ? "+" : ""}
-                                {formattedCurrency(item.amount, 2)}
-                            </p>
+                            <div className='w-full flex flex-col col-span-2 md:col-span-1'>
+                                <p className={item.amount > 0
+                                    ? "text-preset-4-bold text-secondary-green text-right"
+                                    : "text-preset-4-bold text-right"
+                                }>
+                                    {item.amount > 0 ? "+" : ""}
+                                    {formattedCurrency(item.amount, 2)}
+                                </p>
+                                <p className="md:hidden text-preset-5 text-grey-500 text-right">
+                                    {formatDate(item.date)}
+                                </p>
+                            </div>
                         </li>
                     </React.Fragment>
                 ))}

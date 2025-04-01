@@ -78,8 +78,8 @@ const FinanceMenu = ({ highlighted }: FinanceMenuProps) => {
                             data-value={item.title}
                             className={`${
                                 item.title.toLowerCase() === highlighted
-                                    ? "bg-beige-100 w-auto lg:w-full rounded-t-2xl lg:rounded-none pt-200 border-b-4 border-b-secondary-green lg:border-b-0 lg:border-s-4 lg:border-s-secondary-green flex text-grey-900 text-preset-3 lg:ps-400 lg:py-200 px-300 lg:rounded-r-lg"
-                                    : "px-300 text-preset-3 border-b-4 border-b-transparent lg:border-s-4 border-s-transparent text-grey-300 py-200"
+                                    ? "bg-beige-100 w-auto lg:w-full rounded-t-2xl lg:rounded-none pt-200 border-b-4 border-b-secondary-green lg:border-b-0 lg:border-s-4 lg:border-s-secondary-green flex text-grey-900 text-preset-5-bold lg:text-preset-3 lg:ps-400 lg:py-200 px-300 lg:rounded-r-lg"
+                                    : "px-300 text-preset-5-bold lg:text-preset-3 border-b-4 border-b-transparent lg:border-s-4 border-s-transparent text-grey-300 py-200"
                             }`}
                         >
                             <Link

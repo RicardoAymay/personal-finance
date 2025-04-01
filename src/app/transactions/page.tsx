@@ -18,19 +18,14 @@ const TransactionsPage = () => {
     const categoryList: string[] = ["All Transactions", "Entertainment", "Bills", "Groceries", "Dining Out", "Transportation", "Personal Care"]
 
     return (
-        <div className="bg-beige-100 w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row h-screen">
-
-
-            
+        <div className="bg-white w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row h-screen">
                 <FinanceMenuNoSSR highlighted="transactions" />
-            
 
-
-            <main className="relative flex  flex-col w-full px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
+            <main className="relative flex flex-1  flex-col w-full px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
                 <h1 className="text-preset-1">Transactions</h1>
                 <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-200 md:p-400">
                     <header className="flex justify-between w-full">
-                        <label className="flex items-center border rounded-lg min-w-[215px] w-full me-300 max-w-[320px] bg-white">
+                        <label className="flex items-center border h-11 rounded-lg w-full me-300 max-w-[320px] bg-white">
                             <input
                                 name='searchTransaction'
                                 type="text"
@@ -45,7 +40,7 @@ const TransactionsPage = () => {
                                 className="relative right-300 pointer-events-none"
                             />
                         </label>
-                        <div className='flex space-x-300 lg:w-full lg:justify-end'>
+                        <div className='flex gap-300 lg:w-full justify-end items-center min-w-28'>
                             <TransactionSelect selectTitle='Sort by' imgSrc={caretDown} iterateOver={sortList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory} />
 
                             <TransactionSelect selectTitle='Category' imgSrc={caretDown} iterateOver={categoryList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory} />
