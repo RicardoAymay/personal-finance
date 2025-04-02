@@ -166,10 +166,10 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQ
             <div className="w-full flex justify-between col-span-6 pt-300">
                 <button
                     onClick={handleSubtractPage}
-                    className="flex border rounded-lg w-24 justify-center h-11 items-center space-x-150"
+                    className="flex border rounded-lg w-12 md:w-20 justify-center h-11 items-center md:space-x-150"
                 >
                     <Carets svgName="caretLeft" heightSvg={12} widthSvg={16} />
-                    <p>Prev</p>
+                    <p className='hidden md:block'>Prev</p>
                 </button>
 
                 <div className='flex gap-100'>
@@ -190,9 +190,9 @@ const TransactionUL: React.FC<TransactionULProps> = ({ sortBy, category, searchQ
 
                 <button
                     onClick={handleAddPage}
-                    className="flex border rounded-lg w-24 justify-center h-11 items-center space-x-150"
+                    className="flex border rounded-lg w-12 md:w-20 justify-center h-11 items-center md:space-x-150"
                 >
-                    <p>Next</p>
+                    <p className='hidden md:block'>Next</p>
                     <Carets svgName="caretRight" heightSvg={12} widthSvg={16} />
                 </button>
             </div>

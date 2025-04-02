@@ -51,16 +51,16 @@ const TransactionSelect = ({
       {/* Desktop version */}
       <label
         htmlFor={selectTitle}
-        className="hidden text-preset-4 relative md:flex items-center text-grey-500 max-w-56 w-full"
+        className="hidden text-preset-4 md:flex items-center text-grey-500 max-w-56 w-full"
       >
-        <p className="me-2 w-16">{selectTitle}</p>
-        <div className="flex border rounded-lg overflow-hidden relative bg-none h-11 w-fit text-xs text-grey-900">
+        <p className="me-2 w-14">{selectTitle}</p>
+        <div className="flex border rounded-lg overflow-hidden bg-none h-11 w-fit text-xs text-grey-900">
           <select
             id={selectTitle}
             className={
               selectTitle === 'Sort by'
-                ? "w-full rounded-lg min-w-28 ps-300 pe-400 py-100 bg-transparent appearance-none text-gray-900 font-semibold"
-                : "w-full min-w-36 rounded-lg ps-300 pe-400 py-100 bg-transparent appearance-none text-gray-900 font-semibold"
+                ? "w-full rounded-lg min-w-28 ps-300 pe-400 py-100 bg-transparent focus:outline-none cursor-pointer appearance-none text-gray-900 font-semibold"
+                : "w-full min-w-44 rounded-lg ps-300 pe-400 py-100 bg-transparent focus:outline-none cursor-pointer appearance-none text-gray-900 font-semibold"
             }
             data-select={selectTitle}
             value={selectTitle === "Sort by" ? sortBy : category}
@@ -77,7 +77,7 @@ const TransactionSelect = ({
             ))}
           </select>
           <Image
-            className="relative right-250 top-1/2 -translate-y-1/2 pointer-events-none"
+            className={`relative top-1/2 ${selectTitle === "Sort by" ? "right-250" : "right-12"} -translate-y-1/2 pointer-events-none`}
             width={16}
             height={16}
             src={imgSrc}
@@ -88,7 +88,7 @@ const TransactionSelect = ({
 
       {/* Mobile version */}
       <div className="md:hidden">
-        {/* Mobile button using proper icon based on selectTitle */}
+        
         <button onClick={() => handleModal(selectTitle)}>
           <Image
             src={selectTitle === "Sort by" ? iconSort : inconFilter}
@@ -96,7 +96,7 @@ const TransactionSelect = ({
           />
         </button>
 
-        {/* Modal: use sortModal for "Sort by" and filterModal for "Category" */}
+        
         {(selectTitle === "Sort by" ? sortModal : filterModal) && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white rounded-lg p-4 w-3/4">

@@ -19,17 +19,17 @@ const TransactionsPage = () => {
 
     return (
         <div className="bg-white w-full max-w-screen-maxDefined lg:w-full flex flex-col-reverse lg:flex-row h-screen">
-                <FinanceMenuNoSSR highlighted="transactions" />
+            <FinanceMenuNoSSR highlighted="transactions" />
 
             <main className="relative flex flex-1  flex-col w-full px-200 mt-400 lg:mt-0 md:px-500 lg:py-400">
                 <h1 className="text-preset-1">Transactions</h1>
                 <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-200 md:p-400">
                     <header className="flex justify-between w-full">
-                        <label className="flex items-center border h-11 rounded-lg w-full me-300 max-w-[320px] bg-white">
+                        <label className="flex items-center border h-11 rounded-lg flex-1 me-300 max-w-[320px] bg-white">
                             <input
                                 name='searchTransaction'
                                 type="text"
-                                className="flex-1 focus:outline-none h-full placeholder:text-slate-400 rounded-lg indent-300"
+                                className="flex flex-1 focus:outline-none h-full placeholder:text-slate-400 placeholder:truncate rounded-lg indent-300"
                                 placeholder="Search transaction"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -40,7 +40,7 @@ const TransactionsPage = () => {
                                 className="relative right-300 pointer-events-none"
                             />
                         </label>
-                        <div className='flex gap-300 lg:w-full justify-end items-center min-w-28'>
+                        <div className='flex gap-300 justify-end items-center min-w-16'>
                             <TransactionSelect selectTitle='Sort by' imgSrc={caretDown} iterateOver={sortList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory} />
 
                             <TransactionSelect selectTitle='Category' imgSrc={caretDown} iterateOver={categoryList} sortBy={sortBy} setSortBy={setSortBy} category={category} setCategory={setCategory} />
