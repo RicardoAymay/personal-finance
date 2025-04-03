@@ -25,11 +25,11 @@ const TransactionsPage = () => {
                 <h1 className="text-preset-1">Transactions</h1>
                 <div className="w-full bg-white rounded-xl flex flex-col mt-300 p-200 md:p-400">
                     <header className="flex justify-between w-full">
-                        <label className="flex items-center border h-11 rounded-lg flex-1 me-300 max-w-[320px] bg-white">
+                        <label className=" relative flex items-center border h-11 rounded-lg flex-1 me-300 max-w-[320px] bg-white">
                             <input
                                 name='searchTransaction'
                                 type="text"
-                                className="flex flex-1 focus:outline-none h-full placeholder:text-slate-400 placeholder:truncate rounded-lg indent-300"
+                                className=" flex pe-400 focus:outline-none h-full placeholder:text-slate-400 placeholder:text-ellipsis rounded-lg indent-300"
                                 placeholder="Search transaction"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -37,7 +37,7 @@ const TransactionsPage = () => {
                             <Image
                                 src={search}
                                 alt="Search your transactions here"
-                                className="relative right-300 pointer-events-none"
+                                className="absolute right-150 pointer-events-none"
                             />
                         </label>
                         <div className='flex gap-300 justify-end items-center min-w-16'>
